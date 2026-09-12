@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-password-manager"
+version = "0.1.0"
+description = "Password management utilities for Django"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Łukasz Stępnicki"}
+]
+dependencies = [
+    "Django>=5.2,<7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/StepnickiLukasz/django-password-manager"
+Repository = "https://github.com/StepnickiLukasz/django-password-manager"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["src", ".",]
+testpaths = ["tests",]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-django>=4.9",
+    "pytest-cov>=6.0",
+    "black>=25.0",
+    "flake8>=7.0",
+    "isort>=6.0",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 120
